@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (email === storedEmail && password === storedPassword) {
       alert('Successfully logged in');
-      window.location.href = 'index.html';
+      window.location.href = 'web.html';
     } else {
       alert('Incorrect email or password');
     }
