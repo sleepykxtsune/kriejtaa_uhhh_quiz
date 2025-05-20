@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (email && password) {
         localStorage.setItem('registeredEmail', email);
         localStorage.setItem('registeredPassword', password);
-        alert('Úspěšně zaregistrováno!');
+        alert('Signed up successfully');
         window.location.href = 'login.html';
       } else {
-        alert('Vyplňte všechny údaje.');
+        alert('Fill in all the fields');
       }
     });
   }
