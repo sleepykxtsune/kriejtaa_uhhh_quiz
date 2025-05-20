@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('loginForm');
+  const loginForm = document.getElementById('loginForm');
 
-  if (!form) {
+  if (!loginForm) {
     console.error('Formulář s ID "loginForm" nebyl nalezen.');
     return;
   }
 
-  form.addEventListener('submit', function (e) {
+  loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const emailInput = document.getElementById('loginEmail');
     const passwordInput = document.getElementById('loginPassword');
 
     if (!emailInput || !passwordInput) {
-      console.error('Chybí email nebo heslo input.');
+      console.error('Nebyly nalezeny inputy s ID "loginEmail" nebo "loginPassword".');
       return;
     }
 
