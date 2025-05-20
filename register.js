@@ -1,19 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('registerForm');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    const email = document.getElementById('regEmail').value;
-    const password = document.getElementById('regPassword').value;
+      const email = document.getElementById('regEmail').value.trim();
+      const password = document.getElementById('regPassword').value.trim();
 
-    if (email && password) {
-      localStorage.setItem('registeredEmail', email);
-      localStorage.setItem('registeredPassword', password);
-      alert('Successfully registered');
-      window.location.href = 'login.html';
-    } else {
-      alert('Vyplňte všechny údaje.');
-    }
-  });
+      if (email && password) {
+        localStorage.setItem('registeredEmail', email);
+        localStorage.setItem('registeredPassword', password);
+        alert('Úspěšně zaregistrováno!');
+        window.location.href = 'login.html';
+      } else {
+        alert('Vyplňte všechny údaje.');
+      }
+    });
+  }
 });
