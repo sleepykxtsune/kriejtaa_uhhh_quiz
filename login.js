@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (email === storedEmail && password === storedPassword) {
-        alert('Úspěšně přihlášeno!');
+        alert('Successfully logged in');
         window.location.href = 'web.html';
       } else {
-        alert('Nesprávný email nebo heslo.');
+        alert('Incorrect email or password');
       }
     });
   }
