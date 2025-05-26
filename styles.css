@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
   margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -33,12 +33,53 @@ button {
 
 .wrapper {
   color: #78B84F;
-  width: 1293px;
-  height: 894px;
-  border-radius: 50px;
+  width: 95%;
+  max-width: 600px;
+  min-width: 0;
+  height: 60vh;
+  border-radius: 8%;
   background-color: #22150de3;
-  padding: 13%;
-  margin: 2.7%;
+  font-family: 'Press Start 2P', cursive;
+  padding: 4% 3%;
+  margin: 32px auto 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.wrapper {
+  color: #78B84F;
+  width: 95%;
+  max-width: 600px;
+  min-width: 0;
+  min-height: 120px;
+  border-radius: 8%;
+  background-color: #22150de3;
+  font-family: 'Press Start 2P', cursive;
+  padding: 4% 3%;
+  margin: 32px auto 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: auto;
+  overflow: visible;
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    width: 99%;
+    max-width: 99vw;
+    min-width: 0;
+    padding: 4% 2%;
+    min-height: 80px;
+    border-radius: 6%;
+    margin: 16px auto 0 auto;
+  }
 }
 
 .quiz-header {
@@ -54,4 +95,51 @@ button {
 button2 {
   background-color: FF00DD;
   color: black;
+}
+
+nav.navbar {
+  width: 100vw;
+  min-width: 100%;
+  background-color: #22150de3 !important;
+  font-family: 'Press Start 2P', cursive;
+  color: #78B84F;
+  border-radius: 0 0 24px 24px;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+nav.navbar .navbar-brand,
+nav.navbar .nav-link {
+  color: #78B84F !important;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+nav.navbar .navbar-nav {
+  gap: 18px;
+}
+
+nav.navbar .nav-link {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+nav.navbar .nav-link.active,
+nav.navbar .nav-link:focus,
+nav.navbar .nav-link:hover {
+  color: #fff !important;
+  text-shadow: 0 0 4px #78B84F;
+  background: rgba(120,184,79,0.12);
+}
+
+nav.navbar .nav-link.active,
+nav.navbar .nav-link:focus,
+nav.navbar .nav-link:hover {
+  color: #fff !important;
+  text-shadow: 0 0 4px #78B84F;
 }
