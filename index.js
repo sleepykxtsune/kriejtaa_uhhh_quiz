@@ -93,19 +93,17 @@ function deleteQuiz(index) {
   }
 }
 
-// Spustí hraní kvízu
 function startQuiz(index) {
   const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
   currentQuiz = quizzes[index];
   currentQuestionIndex = 0;
   userAnswers = [];
-  // Skryj tvorbu, zobraz hraní
+  // Hide creator, show player
   document.getElementById("quizCreator").style.display = "none";
   document.getElementById("quizPlayer").style.display = "block";
   showCurrentQuestion();
 }
 
-// Zobrazí aktuální otázku
 function showCurrentQuestion() {
   const container = document.getElementById("quizPlayer");
   container.innerHTML = "";
@@ -117,7 +115,7 @@ function showCurrentQuestion() {
 
   const q = currentQuiz.questions[currentQuestionIndex];
   const allAnswers = [q.correctAnswer, ...q.wrongAnswers];
-  // Zamíchat odpovědi
+  // Shuffle answers
   const shuffled = allAnswers.sort(() => 0.5 - Math.random());
 
   container.innerHTML = `
@@ -129,19 +127,17 @@ function showCurrentQuestion() {
       `).join("")}
     </div>
     <div style="margin-top:16px;">
-      <span>Otázka ${currentQuestionIndex + 1} z ${currentQuiz.questions.length}</span>
+      <span>Question ${currentQuestionIndex + 1} of ${currentQuiz.questions.length}</span>
     </div>
   `;
 }
 
-// Zpracuje odpověď a posune na další otázku
 function selectAnswer(answer) {
   userAnswers.push(answer);
   currentQuestionIndex++;
   showCurrentQuestion();
 }
 
-// Vyhodnotí výsledek
 function showQuizResult() {
   let score = 0;
   currentQuiz.questions.forEach((q, i) => {
@@ -150,13 +146,12 @@ function showQuizResult() {
 
   const container = document.getElementById("quizPlayer");
   container.innerHTML = `
-    <h2>Výsledek</h2>
-    <p>Správně: ${score} z ${currentQuiz.questions.length}</p>
-    <button onclick="endQuiz()">Zpět na výběr kvízu</button>
+    <h2>Result</h2>
+    <p>Correct: ${score} out of ${currentQuiz.questions.length}</p>
+    <button onclick="endQuiz()">Back to quiz selection</button>
   `;
 }
 
-// Vrátí zpět na tvorbu kvízu
 function endQuiz() {
   document.getElementById("quizCreator").style.display = "block";
   document.getElementById("quizPlayer").style.display = "none";
