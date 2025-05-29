@@ -93,16 +93,21 @@ function deleteQuiz(index) {
   }
 }
 
+// Spustí hraní kvízu
 function startQuiz(index) {
   const quizzes = JSON.parse(localStorage.getItem("quizzes") || "[]");
   currentQuiz = quizzes[index];
   currentQuestionIndex = 0;
   userAnswers = [];
+  // Skryj tvorbu, zobraz hraní
+  document.getElementById("quizCreator").style.display = "none";
+  document.getElementById("quizPlayer").style.display = "block";
   showCurrentQuestion();
 }
 
+// Zobrazí aktuální otázku
 function showCurrentQuestion() {
-  const container = document.getElementById("questionsContainer");
+  const container = document.getElementById("quizPlayer");
   container.innerHTML = "";
 
   if (!currentQuiz || currentQuestionIndex >= currentQuiz.questions.length) {
@@ -129,24 +134,33 @@ function showCurrentQuestion() {
   `;
 }
 
+// Zpracuje odpověď a posune na další otázku
 function selectAnswer(answer) {
   userAnswers.push(answer);
   currentQuestionIndex++;
   showCurrentQuestion();
 }
 
+// Vyhodnotí výsledek
 function showQuizResult() {
   let score = 0;
   currentQuiz.questions.forEach((q, i) => {
     if (userAnswers[i] === q.correctAnswer) score++;
   });
 
-  const container = document.getElementById("questionsContainer");
+  const container = document.getElementById("quizPlayer");
   container.innerHTML = `
     <h2>Výsledek</h2>
     <p>Správně: ${score} z ${currentQuiz.questions.length}</p>
-    <button onclick="loadQuizzes();document.getElementById('questionsContainer').innerHTML = '';">Zpět na výběr kvízu</button>
+    <button onclick="endQuiz()">Zpět na výběr kvízu</button>
   `;
+}
+
+// Vrátí zpět na tvorbu kvízu
+function endQuiz() {
+  document.getElementById("quizCreator").style.display = "block";
+  document.getElementById("quizPlayer").style.display = "none";
+  loadQuizzes();
 }
 
 loadQuizzes();
