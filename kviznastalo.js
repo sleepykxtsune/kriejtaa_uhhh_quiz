@@ -1,11 +1,11 @@
 const kviz = {
-  "otazky": ["How are you?", "What are you doing right now?", "lingan guli guli"],
+  "otazky": ["What is tralalero tralala?", "Is ballerina cappucina sigma?", "lingan guli guli"],
   "odpovedi": [
-    ["Good", "私は大きなペニスを持っています", "ฉันมีจู๋ใหญ่"],
-    ["Nothing", "Everything", "минем зур дик бар"],
-    ["wa", "吸吮我的雞巴", "guli guanchan"]
+    ["sigma shark", "idk", "ฉันมีจู๋ใหญ่"],
+    ["No :CCC", "YESSSS", "tung tung"],
+    ["wa", "not sigma", "guli guanchan lingan guu lingan guu"]
   ],
-  "spravneOdpovedi": ["Good", "Everything", "guli guanchan"]
+  "spravneOdpovedi": ["sigma shark", "YESSSS", "guli guanchan lingan guu lingan guu"]
 };
 
 let currentQuestion = 0;
