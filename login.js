@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const storedEmail = localStorage.getItem('registeredEmail');
       const storedPassword = localStorage.getItem('registeredPassword');
+    
 
       if (!email || !password) {
         alert('Vyplňte přihlašovací údaje.');
